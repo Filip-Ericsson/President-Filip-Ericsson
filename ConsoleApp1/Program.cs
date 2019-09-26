@@ -10,6 +10,7 @@ namespace President
     {
         static void Main(string[] args)
         {
+            //Här skapas en ny instans av classen President
             President president = new President("Arcturus Mengsk");
 
             while (true)
@@ -19,15 +20,16 @@ namespace President
                 Console.WriteLine("Press 2 to Pass Leglislation");
                 string input = Console.ReadLine();
 
+                //Spelaren får välja att se hur presidenten står i sina områden, "enviroment" "defence" "healthcare" eller fårslå en ny lag
                 if (input == "1")
                 {
-                    president.Present();
+                    president.Present(); //presidentens "stats"
                 }
-                else if (input == "2")
+                else if (input == "2") // fårslå en ny lag
                 {
                     Console.WriteLine("How much to put in enviroment, 0-100");
 
-                    int.TryParse(Console.ReadLine(),out int e);
+                    int.TryParse(Console.ReadLine(),out int e); //Omvandlar string till int
                     Console.WriteLine("How much to put in defence, 0-100");
                     int.TryParse(Console.ReadLine(), out int d);
                     Console.WriteLine("How much to put in healthcare, 0-100");
@@ -37,11 +39,11 @@ namespace President
 
 
 
-                    if (president.PassLegislation(e, d, h, bribe) == true)
-                    {
+                    if (president.PassLegislation(e, d, h, bribe) == true) //metoden i klassen president som hämtar fyra olika värden, int.
+                    {                                                       //
                         Console.WriteLine("The law passed!");
                     }
-                    else
+                    else // om inte sann, blir lagen om spelaren ville ta igenom, inte sann.
                     {
                         Console.WriteLine("The President rejects your leglislation");
                     }
